@@ -12,7 +12,7 @@ $ cd DummyCacheListener
 $ mvn install
 ```
 
-2. Start locator, server and deploy jars
+2. Start locator, server and deploy jars (`start.gfsh` deploys `DummyCacheListener.jar` before `kafka-client.jar` to force the error)
 ```
 $ gfsh < start.gfsh
 ```
