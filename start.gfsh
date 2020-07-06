@@ -1,0 +1,18 @@
+
+start locator --name=locator
+
+start server --name=server1
+
+deploy --jar=./jars/lz4-java-1.7.1.jar
+
+deploy --jar=./jars/zstd-jni-1.4.4-7.jar
+
+deploy --jar=./jars/snappy-java-1.1.7.3.jar
+
+deploy --jar=./DummyCacheListener/target/DummyCacheListener-1.0-SNAPSHOT.jar
+
+deploy --jar=./jars/kafka-clients-2.5.0.jar
+
+change loglevel --loglevel=DEBUG --member=server1
+
+create region --name=/test-region --type=LOCAL --cache-listener=io.github.alb3rtobr.test.MyCacheListener

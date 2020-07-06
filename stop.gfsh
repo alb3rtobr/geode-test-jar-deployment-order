@@ -1,0 +1,3 @@
+connect
+stop server --name=server1
+stop locator --name=locator
