@@ -6,6 +6,8 @@ import org.apache.geode.cache.util.*;
 import org.apache.kafka.common.KafkaException;
 
 import org.apache.geode.logging.internal.log4j.api.LogService;
+import org.apache.kafka.common.errors.ProducerFencedException;
+import org.apache.kafka.common.errors.UnknownProducerIdException;
 import org.apache.logging.log4j.Logger;
 
 public class MyCacheListener extends CacheListenerAdapter<String,String>{
@@ -14,14 +16,16 @@ public class MyCacheListener extends CacheListenerAdapter<String,String>{
 
     @Override
     public void afterRegionCreate(RegionEvent event) {
-        new KafkaException();
+        new ProducerFencedException("");
+        new UnknownProducerIdException("");
         logger.info("MyCacheListener::afterRegionCreate");
     }
 
     @Override
     public void afterInvalidate(EntryEvent<String, String> event)
     {
-        new KafkaException();
+        new ProducerFencedException("");
+        new UnknownProducerIdException("");
         logger.info("MyCacheListener::afterInvalidate");
     }
 }
