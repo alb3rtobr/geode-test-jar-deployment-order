@@ -12,9 +12,9 @@ $ cd DummyCacheListener
 $ mvn install
 ```
 
-2. Start locator, server and deploy jars (`start.gfsh` deploys `DummyCacheListener.jar` before `kafka-client.jar` to force the error)
+2. Start locator, server and deploy jars (`DummyCacheListener.jar` is deployed before `kafka-client.jar` to force the error)
 ```
-$ gfsh < start.gfsh
+$ ./start.sh
 ```
 
 It should fail, but it currently works for me:
@@ -39,3 +39,7 @@ Member | Status | Message
 
 And LinkageErrors can be found in server1 log.
 
+3. Stop and remove locator and server folders:
+```
+$ ./stop.sh
+```
